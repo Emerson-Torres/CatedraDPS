@@ -10,11 +10,7 @@ Manual de Tecnico:https://1drv.ms/b/s!AvHd89RVPdijgaM3hPRpLFKmaw3C-Q?e=0Ni2q8
 Video explicando el proyecto ▶️:https://1drv.ms/v/s!AvHd89RVPdijgaM10aCFO7DczFnFRA?e=S50HVw
 Autores ✒️
 
-Katherine Lissette Sánchez Vila SV161855
-
-Gerson Ernesto López Chevez LC151886
-
-Oscar Steven García Menjívar GM191382
+Emerson Ernesto Torres Rodríguez TR172032
 
 Santos Ronaldo Lemus Torres LT191211
 
