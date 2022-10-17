@@ -1,7 +1,7 @@
 ¡¡¡¡¡ Bienvenido usuario !!!!!!
 
 
-Manual de Usuario 🧑🏻‍💻:
+Manual de Usuario 🧑🏻‍💻:https://1drv.ms/b/s!AvHd89RVPdijgaM4i8kgnT8iWOjE2w?e=86vsiU
 
 
 Manual de Tecnico:https://1drv.ms/b/s!AvHd89RVPdijgaM3hPRpLFKmaw3C-Q?e=0Ni2q8
@@ -40,7 +40,9 @@ Antes de comenzar, asegúrese de tener instalado:
 5.	Realice las modificaciones necesarias y ejecute los comandos: git add -A para agregar los cambios, git commit -m "comentario" y finalmente git push -u origin Su rama para agregar los cambios al repositorio remoto. 
  
  
-Licencia:
+Licencia 📄:
+
+
 Este proyecto está bajo la licencia Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0) 
 Que establece: 
 Usted es libre de: Compartir — copiar y redistribuir el material en cualquier medio o formato Adaptar — remezclar, transformar y construir a partir del material La licenciante no puede revocar estas libertades en tanto usted siga los términos de la licencia 
