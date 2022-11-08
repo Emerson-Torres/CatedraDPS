@@ -12,8 +12,7 @@ export default function App() {
   return (
 
     <View style={styles3.container}>
-      <Splash></Splash>
-
+      <Login></Login>
     </View>
 
   );
