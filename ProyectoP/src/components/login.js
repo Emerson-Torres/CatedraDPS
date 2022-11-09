@@ -4,7 +4,12 @@ import React, { useState } from 'react';
 import Constants from 'expo-constants';
 import { StyleSheet, Text, View, TextInput, TouchableHighlight, Alert, ScrollView, Image } from 'react-native';
 import SelectList from 'react-native-dropdown-select-list';
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from '../../firebase-config';
 
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Login = () => {
 
     /*
@@ -13,6 +18,51 @@ const Login = () => {
          <TouchableHighlight   style={styles2.boton}><Text style={styles2.textbtn}>Enviar</Text></TouchableHighlight>
         
    */
+
+         const navigation= useNavigation();
+         const[email, setEmail]=useState("");
+         const[password, setPassword]=useState("");
+         const funcionVer=()=>{
+            Alert.alert("los datos ingresados son estos:"+ password +" y "+ email);
+         }
+
+         const app =  initializeApp(firebaseConfig);
+         const auth = getAuth(app);
+         
+         const handleCreateAccount = () =>{
+         
+            createUserWithEmailAndPassword(auth,email, password)
+            .then(()=>{
+                console.log("cuenta creada")
+               
+            })
+            .catch(error=>{
+                console.log("algo salio mal al crear la cuenta")
+                
+            })
+            
+         }
+
+         const handleSignIn = () =>{
+         
+            signInWithEmailAndPassword(auth,email, password)
+            .then((userCredential)=>{
+                console.log("Buen inicio de sesion")
+                const user = userCredential.user;
+                console.log(user.email)
+                if(user.email =="emertotosito@gmail.com"){
+                    navigation.navigate("HomeAdmin");
+                }else{
+                    navigation.navigate("Home");
+                }
+                
+            })
+            .catch(error=>{
+                console.log("algo salio mal al iniciar la cuenta")
+                navigation.navigate("Login");
+            })
+            
+         }
 
     return (
         <View>
@@ -27,9 +77,10 @@ const Login = () => {
                 <View style={styles2.containerform}>
                 <Text style={styles2.textlogin}>Loguin</Text>
                     <View style={styles2.containerimputs}>
-                        <TextInput style={styles2.inputtext1} placeholderTextColor="black"  placeholder="Ingrese su usuario" />
-                        <TextInput style={styles2.inputtext2} secureTextEntry={true} placeholderTextColor="black"  placeholder="Ingrese su contraseña" />
-                        <TouchableHighlight style={styles2.boton}><Text style={styles2.textbtn}>Loguin</Text></TouchableHighlight>
+                        <TextInput style={styles2.inputtext1} placeholderTextColor="black" onChangeText={text => setEmail(text)}  placeholder="Ingrese su usuario" />
+                        <TextInput style={styles2.inputtext2} secureTextEntry={true} onChangeText={text2 => setPassword(text2)} placeholderTextColor="black"  placeholder="Ingrese su contraseña" />
+                        <TouchableHighlight onPress={handleSignIn} style={styles2.boton}><Text style={styles2.textbtn}>Loguin</Text></TouchableHighlight>
+                        <TouchableHighlight onPress={handleCreateAccount} style={styles2.boton}><Text style={styles2.textbtn}>Registro</Text></TouchableHighlight>
                     </View>
                 </View>
                 
@@ -57,7 +108,7 @@ const styles2 = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
         fontSize: 30,
-        fontFamily:'san serif'
+        
     },
     textlogin: {
         textAlign: 'center',
